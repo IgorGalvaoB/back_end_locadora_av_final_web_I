@@ -38,7 +38,7 @@ router.post('/addCar', upload.single('image'), uploadCloud, async (req, res) => 
 
 router.delete('/deleteCar/:id', async (req, res) => {
   const { id } = req.params
-  console.log(id)
+  
   try {
     const carro = await Carro.findById(id)
     if (!carro) {
