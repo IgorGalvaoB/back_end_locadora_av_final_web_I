@@ -11,9 +11,12 @@ const uploadCloud = async (req, res, next) => {
     const noBgFilePath = await removeBg(filePath)
 
   
-    const result = await cloudinary.uploader.upload(noBgFilePath, {
+     const result = await cloudinary.uploader.upload(noBgFilePath, {
       folder: 'Locadora',
       resource_type: 'image',
+      transformation: [
+        { height:1080, crop: 'scale' },
+      ],
     })
 
     
